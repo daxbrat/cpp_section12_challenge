@@ -12,13 +12,14 @@ int main() {
     int array1[] {1,2,3,4,5};
     int array2[] {10,20,30};
     
+    
     cout << "Array 1: ";
-    print(array1,array1_size);
+    print(int array1, int array1_size);
     
     cout << "Array 2: ";
-    print(array1,array2_size);
+    print(int array2, int array2_size);
     
-    int *results = apply_all(array1, array1_size, array2, array2_size);
+    int *results = apply_all(array1, 5, array2, 3);
     constexpr size_t results_size {array1_size * array2_size};
     
     cout << "Result: ";
@@ -29,12 +30,19 @@ int main() {
     return 0;
 }
 
-int apply_all(arr1, size1, arr2, size2) {
-    
+int apply_all(int arr1, int size1, int arr2, int size2) {
+    for (auto num1: arr1) {
+        for (auto num2: arr2) {
+            results.push(num2 * num1);
+        }
+    }
+    return results;
     
 }
 
-void print(results, size) {
-    
+void print(int arr, int size) {
+    for (auto i:arr) {
+        cout << arr[i];
+    }
     
 }
